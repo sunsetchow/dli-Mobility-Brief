@@ -1,0 +1,1046 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Relay — Brand Guidelines</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,600;0,700;0,800;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ═══════════════════════════════════════════════════════════════
+       RELAY BRAND TOKENS
+       Copy these into Claude Design or any project to apply the brand
+       ═══════════════════════════════════════════════════════════════ */
+    :root {
+      /* — Colours — */
+      --relay-deep:       #1B3A5C;   /* Primary. Trust, authority, dark BGs */
+      --relay-teal:       #0A7B94;   /* Secondary. Technology, CTAs, links  */
+      --relay-coral:      #E07B54;   /* Accent. Warmth, handover motif       */
+      --relay-cream:      #F6F3EE;   /* Light background                     */
+      --relay-sky:        #D4EBF5;   /* Supporting tint, callouts            */
+      --relay-gray:       #64748B;   /* Body text secondary                  */
+      --relay-light-gray: #E2E8F0;   /* Dividers, borders                    */
+      --relay-dark:       #0F172A;   /* Primary body text                    */
+
+      /* — Typography — */
+      --font-heading: 'Poppins', 'Trebuchet MS', Arial, sans-serif;
+      --font-body:    'Inter', 'Calibri', 'Gill Sans', sans-serif;
+
+      /* — Type scale — */
+      --text-display: clamp(2.5rem, 6vw, 4.5rem);
+      --text-h1:      clamp(1.75rem, 3.5vw, 2.5rem);
+      --text-h2:      clamp(1.25rem, 2.5vw, 1.75rem);
+      --text-h3:      1.125rem;
+      --text-body-lg: 1.0625rem;
+      --text-body:    1rem;
+      --text-sm:      0.875rem;
+      --text-xs:      0.75rem;
+      --text-label:   0.6875rem;
+
+      /* — Spacing — */
+      --space-xs:  0.25rem;
+      --space-sm:  0.5rem;
+      --space-md:  1rem;
+      --space-lg:  2rem;
+      --space-xl:  4rem;
+      --space-2xl: 7rem;
+
+      /* — Shape — */
+      --radius-sm: 4px;
+      --radius-md: 10px;
+      --radius-lg: 20px;
+      --radius-xl: 32px;
+      --radius-full: 9999px;
+
+      /* — Shadows — */
+      --shadow-card:     0 2px 12px rgba(15, 26, 42, 0.08);
+      --shadow-elevated: 0 8px 32px rgba(15, 26, 42, 0.14);
+
+      /* — Motion — */
+      --transition: 200ms ease;
+    }
+
+    /* ─── Reset & Base ────────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-body);
+      font-size: var(--text-body);
+      color: var(--relay-dark);
+      background: var(--relay-cream);
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    img { display: block; max-width: 100%; }
+    a { color: var(--relay-teal); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ─── Utility ─────────────────────────────────────────────────── */
+    .section { padding: var(--space-2xl) var(--space-xl); max-width: 1120px; margin: 0 auto; }
+    .section-full { padding: var(--space-2xl) var(--space-xl); }
+
+    .section-label {
+      font-family: var(--font-heading);
+      font-size: var(--text-label);
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--relay-teal);
+      margin-bottom: var(--space-lg);
+    }
+
+    .card {
+      background: #fff;
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-card);
+      padding: var(--space-lg);
+    }
+
+    .divider {
+      border: none;
+      border-top: 1px solid var(--relay-light-gray);
+      margin: var(--space-xl) 0;
+    }
+
+    /* ─── Navigation ──────────────────────────────────────────────── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--relay-deep);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.75rem var(--space-xl);
+      gap: var(--space-lg);
+    }
+
+    .nav-logo {
+      font-family: var(--font-heading);
+      font-size: 1.1rem;
+      font-weight: 800;
+      letter-spacing: 0.15em;
+      color: var(--relay-cream);
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+    .nav-logo .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--relay-coral); flex-shrink: 0; }
+
+    .nav-links {
+      display: flex;
+      gap: var(--space-lg);
+      list-style: none;
+    }
+    .nav-links a {
+      font-family: var(--font-body);
+      font-size: var(--text-sm);
+      color: var(--relay-sky);
+      transition: color var(--transition);
+    }
+    .nav-links a:hover { color: #fff; text-decoration: none; }
+
+    /* ─── Hero ────────────────────────────────────────────────────── */
+    #hero {
+      background: var(--relay-deep);
+      min-height: 92vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      padding: var(--space-2xl) var(--space-xl);
+    }
+
+    .hero-accent-bar {
+      position: absolute;
+      left: 0; top: 0; bottom: 0;
+      width: 8px;
+      background: var(--relay-teal);
+    }
+
+    .hero-corner {
+      position: absolute;
+      top: 0; right: 0;
+      width: 200px; height: 140px;
+      background: var(--relay-coral);
+      clip-path: polygon(100% 0, 0 0, 100% 100%);
+    }
+
+    .hero-circle {
+      position: absolute;
+      bottom: var(--space-xl);
+      right: var(--space-xl);
+      width: 120px; height: 120px;
+      border-radius: 50%;
+      border: 3px solid rgba(224,123,84,0.25);
+    }
+    .hero-circle-inner {
+      position: absolute;
+      bottom: calc(var(--space-xl) + 35px);
+      right: calc(var(--space-xl) + 35px);
+      width: 50px; height: 50px;
+      border-radius: 50%;
+      background: var(--relay-coral);
+      opacity: 0.7;
+    }
+
+    .hero-content { max-width: 900px; margin: 0 auto; width: 100%; position: relative; }
+
+    .hero-eyebrow {
+      font-family: var(--font-heading);
+      font-size: var(--text-label);
+      font-weight: 700;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--relay-teal);
+      margin-bottom: var(--space-md);
+    }
+
+    .hero-wordmark {
+      font-family: var(--font-heading);
+      font-size: var(--text-display);
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      color: var(--relay-cream);
+      line-height: 1;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.2em;
+    }
+    .hero-wordmark .coral-dot {
+      width: 0.18em; height: 0.18em;
+      border-radius: 50%;
+      background: var(--relay-coral);
+      margin-top: 0.12em;
+      flex-shrink: 0;
+    }
+
+    .hero-tagline {
+      font-family: var(--font-body);
+      font-size: var(--text-body-lg);
+      font-style: italic;
+      color: var(--relay-sky);
+      margin-top: var(--space-md);
+      max-width: 560px;
+    }
+
+    .hero-divider {
+      width: 80px; height: 3px;
+      background: var(--relay-coral);
+      margin: var(--space-lg) 0;
+    }
+
+    .hero-meta {
+      font-size: var(--text-sm);
+      color: var(--relay-gray);
+      letter-spacing: 0.04em;
+    }
+
+    /* ─── Brand Essence ───────────────────────────────────────────── */
+    #essence { background: var(--relay-cream); }
+
+    .essence-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-xl);
+      align-items: start;
+      margin-top: var(--space-lg);
+    }
+
+    .mission-text {
+      font-family: var(--font-heading);
+      font-size: var(--text-h1);
+      font-weight: 700;
+      color: var(--relay-deep);
+      line-height: 1.2;
+      margin-bottom: var(--space-md);
+    }
+
+    .mission-body {
+      font-size: var(--text-body-lg);
+      color: var(--relay-gray);
+      line-height: 1.7;
+    }
+
+    .pillars {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-md);
+    }
+
+    .pillar {
+      border-radius: var(--radius-md);
+      padding: var(--space-lg);
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-xs);
+    }
+    .pillar .pillar-name {
+      font-family: var(--font-heading);
+      font-size: var(--text-h3);
+      font-weight: 700;
+    }
+    .pillar .pillar-desc {
+      font-size: var(--text-sm);
+      opacity: 0.85;
+    }
+    .pillar-deep  { background: var(--relay-deep); }
+    .pillar-coral { background: var(--relay-coral); }
+    .pillar-teal  { background: var(--relay-teal); }
+    .pillar-slate { background: #3D6490; }
+
+    /* ─── Logo & Wordmark ─────────────────────────────────────────── */
+    #logo { background: #fff; }
+
+    .logo-demos {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-lg);
+      margin-top: var(--space-lg);
+    }
+
+    .logo-demo {
+      border-radius: var(--radius-md);
+      padding: var(--space-xl);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-sm);
+      box-shadow: var(--shadow-card);
+    }
+    .logo-demo-light { background: #fff; border: 1px solid var(--relay-light-gray); }
+    .logo-demo-dark  { background: var(--relay-deep); }
+
+    .wordmark {
+      font-family: var(--font-heading);
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      font-size: 3rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.15em;
+    }
+    .wordmark .dot { width: 0.16em; height: 0.16em; border-radius: 50%; background: var(--relay-coral); margin-top: 0.1em; }
+    .wordmark-dark  { color: var(--relay-deep); }
+    .wordmark-light { color: var(--relay-cream); }
+
+    .wordmark-tagline-light { font-size: var(--text-sm); color: var(--relay-gray); font-style: italic; }
+    .wordmark-tagline-dark  { font-size: var(--text-sm); color: var(--relay-sky);  font-style: italic; }
+    .logo-demo-caption { font-size: var(--text-xs); color: var(--relay-gray); margin-top: var(--space-sm); text-align: center; }
+
+    .logo-rules {
+      margin-top: var(--space-xl);
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--space-md);
+    }
+
+    .rule {
+      display: flex;
+      gap: var(--space-md);
+      align-items: flex-start;
+      padding: var(--space-md);
+      background: var(--relay-cream);
+      border-radius: var(--radius-sm);
+    }
+    .rule-dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      flex-shrink: 0;
+      margin-top: 0.35em;
+    }
+    .rule-do   .rule-dot { background: #2D7A3E; }
+    .rule-dont .rule-dot { background: var(--relay-coral); }
+    .rule-text { font-size: var(--text-sm); color: var(--relay-gray); }
+    .rule-text strong { color: var(--relay-dark); font-weight: 600; }
+
+    /* ─── Colour Palette ──────────────────────────────────────────── */
+    #colours { background: var(--relay-cream); }
+
+    .colour-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: var(--space-md);
+      margin-top: var(--space-lg);
+    }
+
+    .colour-swatch {
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      box-shadow: var(--shadow-card);
+    }
+    .swatch-block { height: 140px; }
+    .swatch-info {
+      background: #fff;
+      padding: var(--space-md);
+    }
+    .swatch-name {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: var(--text-sm);
+      color: var(--relay-deep);
+      margin-bottom: var(--space-xs);
+    }
+    .swatch-hex {
+      font-family: 'Courier New', monospace;
+      font-size: var(--text-sm);
+      color: var(--relay-teal);
+      margin-bottom: var(--space-xs);
+    }
+    .swatch-rgb { font-size: var(--text-xs); color: var(--relay-gray); margin-bottom: var(--space-sm); }
+    .swatch-usage { font-size: var(--text-xs); color: var(--relay-gray); line-height: 1.5; }
+
+    .a11y-bar {
+      background: var(--relay-sky);
+      border-radius: var(--radius-sm);
+      padding: var(--space-md) var(--space-lg);
+      margin-top: var(--space-lg);
+      font-size: var(--text-sm);
+      color: var(--relay-deep);
+    }
+    .a11y-bar strong { font-weight: 600; }
+
+    /* ─── Typography ──────────────────────────────────────────────── */
+    #typography { background: #fff; }
+
+    .type-cols {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-lg);
+      margin-top: var(--space-lg);
+    }
+
+    .type-card {
+      background: var(--relay-cream);
+      border-radius: var(--radius-md);
+      padding: var(--space-lg);
+    }
+
+    .type-family {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--relay-deep);
+      margin-bottom: var(--space-xs);
+    }
+    .type-role {
+      font-size: var(--text-label);
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--relay-coral);
+      margin-bottom: var(--space-lg);
+    }
+
+    .type-row { margin-bottom: var(--space-md); }
+    .type-row .type-scale-label { font-size: var(--text-xs); color: var(--relay-gray); margin-bottom: 2px; }
+
+    .type-body-sample {
+      margin-top: var(--space-lg);
+      padding-top: var(--space-lg);
+      border-top: 1px solid var(--relay-light-gray);
+    }
+    .type-body-sample p { font-size: var(--text-sm); color: var(--relay-gray); font-style: italic; }
+
+    /* ─── Voice & Tone ────────────────────────────────────────────── */
+    #voice { background: var(--relay-deep); }
+    #voice .section-label { color: var(--relay-teal); }
+    #voice .voice-headline {
+      font-family: var(--font-heading);
+      font-size: var(--text-h1);
+      font-weight: 700;
+      color: var(--relay-cream);
+      margin-bottom: var(--space-xl);
+    }
+
+    .tone-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--space-md);
+    }
+
+    .tone-card {
+      background: rgba(255,255,255,0.05);
+      border-radius: var(--radius-md);
+      border: 1px solid rgba(255,255,255,0.08);
+      overflow: hidden;
+    }
+
+    .tone-header {
+      display: flex;
+      align-items: center;
+      gap: var(--space-md);
+      padding: var(--space-md) var(--space-lg);
+    }
+    .tone-pip { width: 4px; height: 36px; border-radius: 2px; flex-shrink: 0; }
+    .tone-name {
+      font-family: var(--font-heading);
+      font-size: var(--text-h3);
+      font-weight: 700;
+      color: var(--relay-cream);
+    }
+
+    .tone-examples { padding: var(--space-md) var(--space-lg) var(--space-lg); }
+    .tone-example { margin-bottom: var(--space-md); }
+    .tone-example:last-child { margin-bottom: 0; }
+    .tone-badge {
+      display: inline-block;
+      font-size: var(--text-xs);
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      padding: 1px 8px;
+      border-radius: var(--radius-full);
+      margin-bottom: var(--space-xs);
+    }
+    .badge-do   { background: rgba(45,122,62,0.3);  color: #86efac; }
+    .badge-dont { background: rgba(224,123,84,0.3); color: #fca5a5; }
+    .tone-copy { font-size: var(--text-sm); font-style: italic; line-height: 1.5; }
+    .tone-copy-do   { color: #bbf7d0; }
+    .tone-copy-dont { color: #fecaca; }
+
+    /* ─── Imagery ─────────────────────────────────────────────────── */
+    #imagery { background: var(--relay-cream); }
+
+    .imagery-cols {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-xl);
+      margin-top: var(--space-lg);
+    }
+
+    .imagery-col-label {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-sm);
+      font-family: var(--font-heading);
+      font-size: var(--text-sm);
+      font-weight: 700;
+      padding: 4px 12px;
+      border-radius: var(--radius-full);
+      margin-bottom: var(--space-md);
+    }
+    .label-do   { background: #DCFCE7; color: #166534; }
+    .label-dont { background: #FEE2E2; color: #991B1B; }
+
+    .imagery-list { list-style: none; display: flex; flex-direction: column; gap: var(--space-sm); }
+    .imagery-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: var(--space-sm);
+      font-size: var(--text-sm);
+      color: var(--relay-dark);
+      line-height: 1.55;
+    }
+    .imagery-list li .bullet {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      flex-shrink: 0;
+      margin-top: 0.45em;
+    }
+    .do-bullet   { background: #16A34A; }
+    .dont-bullet { background: var(--relay-coral); }
+
+    /* ─── Token Reference ─────────────────────────────────────────── */
+    #tokens { background: #0F172A; }
+    #tokens .section-label { color: var(--relay-teal); }
+    #tokens .token-headline {
+      font-family: var(--font-heading);
+      font-size: var(--text-h2);
+      font-weight: 700;
+      color: var(--relay-cream);
+      margin-bottom: var(--space-sm);
+    }
+    #tokens .token-sub {
+      font-size: var(--text-sm);
+      color: var(--relay-gray);
+      margin-bottom: var(--space-lg);
+    }
+    pre {
+      background: #1E293B;
+      border-radius: var(--radius-md);
+      padding: var(--space-lg);
+      overflow-x: auto;
+      font-size: 0.8rem;
+      line-height: 1.8;
+      color: #94A3B8;
+    }
+    .token-comment { color: #475569; }
+    .token-prop    { color: var(--relay-sky); }
+    .token-val     { color: #86EFAC; }
+
+    /* ─── Footer ──────────────────────────────────────────────────── */
+    footer {
+      background: var(--relay-deep);
+      padding: var(--space-xl);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-md);
+      flex-wrap: wrap;
+    }
+    .footer-left {
+      display: flex;
+      align-items: center;
+      gap: var(--space-sm);
+    }
+    .footer-wordmark {
+      font-family: var(--font-heading);
+      font-size: 1rem;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      color: var(--relay-cream);
+      display: flex;
+      align-items: center;
+      gap: 0.3em;
+    }
+    .footer-wordmark .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--relay-coral); }
+    .footer-meta { font-size: var(--text-xs); color: var(--relay-gray); }
+  </style>
+</head>
+<body>
+
+  <!-- ── Navigation ───────────────────────────────────────────── -->
+  <nav>
+    <div class="nav-logo">
+      RELAY <span class="dot"></span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#essence">Essence</a></li>
+      <li><a href="#logo">Logo</a></li>
+      <li><a href="#colours">Colours</a></li>
+      <li><a href="#typography">Type</a></li>
+      <li><a href="#voice">Voice</a></li>
+      <li><a href="#imagery">Imagery</a></li>
+      <li><a href="#tokens">Tokens</a></li>
+    </ul>
+  </nav>
+
+  <!-- ── Hero ─────────────────────────────────────────────────── -->
+  <section id="hero">
+    <div class="hero-accent-bar"></div>
+    <div class="hero-corner"></div>
+    <div class="hero-circle"></div>
+    <div class="hero-circle-inner"></div>
+
+    <div class="hero-content">
+      <p class="hero-eyebrow">Brand Guidelines</p>
+      <div class="hero-wordmark">
+        RELAY <span class="coral-dot"></span>
+      </div>
+      <p class="hero-tagline">Turning the school run into a trusted handover.</p>
+      <div class="hero-divider"></div>
+      <p class="hero-meta">Design Led Innovation &nbsp;·&nbsp; Team 10 &nbsp;·&nbsp; London Business School &nbsp;·&nbsp; 2026</p>
+    </div>
+  </section>
+
+  <!-- ── Brand Essence ─────────────────────────────────────────── -->
+  <section id="essence">
+    <div class="section">
+      <p class="section-label">Brand Essence</p>
+      <div class="essence-grid">
+        <div>
+          <h2 class="mission-text">We make the school run disappear.</h2>
+          <p class="mission-body">
+            Relay is a supervised autonomous vehicle service that handles the school run for
+            single parents in outer London — so every parent, regardless of income, disability
+            or shift pattern, can trust that their child is safely at school while they reclaim
+            the hours they need to work, rest, and build a better life.
+          </p>
+        </div>
+        <div class="pillars">
+          <div class="pillar pillar-deep">
+            <span class="pillar-name">Trustworthy</span>
+            <span class="pillar-desc">Safety-first, every journey</span>
+          </div>
+          <div class="pillar pillar-coral">
+            <span class="pillar-name">Warm</span>
+            <span class="pillar-desc">Human care, not just tech</span>
+          </div>
+          <div class="pillar pillar-teal">
+            <span class="pillar-name">Inclusive</span>
+            <span class="pillar-desc">Designed for those overlooked</span>
+          </div>
+          <div class="pillar pillar-slate">
+            <span class="pillar-name">Reliable</span>
+            <span class="pillar-desc">Consistent, predictable, calm</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Logo & Wordmark ───────────────────────────────────────── -->
+  <section id="logo">
+    <div class="section">
+      <p class="section-label">Logo &amp; Wordmark</p>
+
+      <div class="logo-demos">
+        <div>
+          <div class="logo-demo logo-demo-light">
+            <div class="wordmark wordmark-dark">RELAY <span class="dot"></span></div>
+            <p class="wordmark-tagline-light">Supervised AV School Transport</p>
+          </div>
+          <p class="logo-demo-caption">Primary — use on light backgrounds</p>
+        </div>
+        <div>
+          <div class="logo-demo logo-demo-dark">
+            <div class="wordmark wordmark-light">RELAY <span class="dot"></span></div>
+            <p class="wordmark-tagline-dark">Supervised AV School Transport</p>
+          </div>
+          <p class="logo-demo-caption">Reversed — use on dark backgrounds</p>
+        </div>
+      </div>
+
+      <div class="logo-rules">
+        <div class="rule rule-do">
+          <div class="rule-dot"></div>
+          <p class="rule-text"><strong>Do</strong> maintain clear space equal to the height of the "R" on all sides of the wordmark.</p>
+        </div>
+        <div class="rule rule-do">
+          <div class="rule-dot"></div>
+          <p class="rule-text"><strong>Do</strong> always include the coral dot — it represents the handover, the core of the Relay concept.</p>
+        </div>
+        <div class="rule rule-dont">
+          <div class="rule-dot"></div>
+          <p class="rule-text"><strong>Don't</strong> stretch, recolour, or apply drop shadows to the wordmark. Use only approved colour pairs.</p>
+        </div>
+        <div class="rule rule-dont">
+          <div class="rule-dot"></div>
+          <p class="rule-text"><strong>Don't</strong> display the wordmark below 120px / 1" wide — it loses legibility at smaller sizes.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Colour Palette ────────────────────────────────────────── -->
+  <section id="colours">
+    <div class="section">
+      <p class="section-label">Colour Palette</p>
+
+      <div class="colour-grid">
+        <div class="colour-swatch">
+          <div class="swatch-block" style="background:#1B3A5C;"></div>
+          <div class="swatch-info">
+            <p class="swatch-name">Relay Deep</p>
+            <p class="swatch-hex">#1B3A5C</p>
+            <p class="swatch-rgb">RGB 27 / 58 / 92</p>
+            <p class="swatch-usage">Primary. Headings, dark backgrounds, navbars.</p>
+          </div>
+        </div>
+        <div class="colour-swatch">
+          <div class="swatch-block" style="background:#0A7B94;"></div>
+          <div class="swatch-info">
+            <p class="swatch-name">Relay Teal</p>
+            <p class="swatch-hex">#0A7B94</p>
+            <p class="swatch-rgb">RGB 10 / 123 / 148</p>
+            <p class="swatch-usage">Secondary. CTAs, links, key UI elements.</p>
+          </div>
+        </div>
+        <div class="colour-swatch">
+          <div class="swatch-block" style="background:#E07B54;"></div>
+          <div class="swatch-info">
+            <p class="swatch-name">Relay Coral</p>
+            <p class="swatch-hex">#E07B54</p>
+            <p class="swatch-rgb">RGB 224 / 123 / 84</p>
+            <p class="swatch-usage">Accent. Highlights, the handover dot motif, alerts.</p>
+          </div>
+        </div>
+        <div class="colour-swatch">
+          <div class="swatch-block" style="background:#F6F3EE; border-bottom: 1px solid #E2E8F0;"></div>
+          <div class="swatch-info">
+            <p class="swatch-name">Relay Cream</p>
+            <p class="swatch-hex">#F6F3EE</p>
+            <p class="swatch-rgb">RGB 246 / 243 / 238</p>
+            <p class="swatch-usage">Light backgrounds. Warm, never cold white.</p>
+          </div>
+        </div>
+        <div class="colour-swatch">
+          <div class="swatch-block" style="background:#D4EBF5;"></div>
+          <div class="swatch-info">
+            <p class="swatch-name">Relay Sky</p>
+            <p class="swatch-hex">#D4EBF5</p>
+            <p class="swatch-rgb">RGB 212 / 235 / 245</p>
+            <p class="swatch-usage">Supporting tints. Infographics, callouts.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="a11y-bar">
+        <strong>Accessibility</strong> &nbsp;·&nbsp;
+        Relay Deep on Cream: <strong>7.8:1 (AAA)</strong> &nbsp;·&nbsp;
+        Relay Teal on Cream: <strong>4.7:1 (AA)</strong> &nbsp;·&nbsp;
+        Relay Coral on Deep: <strong>4.5:1 (AA)</strong>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Typography ────────────────────────────────────────────── -->
+  <section id="typography">
+    <div class="section">
+      <p class="section-label">Typography</p>
+
+      <div class="type-cols">
+        <!-- Heading font -->
+        <div class="type-card">
+          <p class="type-family" style="font-family: var(--font-heading);">Poppins</p>
+          <p class="type-role">Headings &amp; Display</p>
+
+          <div class="type-row">
+            <p class="type-scale-label">Display · 72px / 800</p>
+            <p style="font-family:var(--font-heading);font-size:3rem;font-weight:800;color:var(--relay-deep);line-height:1;">Relay</p>
+          </div>
+          <div class="type-row">
+            <p class="type-scale-label">H1 · 40px / 700</p>
+            <p style="font-family:var(--font-heading);font-size:2rem;font-weight:700;color:var(--relay-deep);">School Run</p>
+          </div>
+          <div class="type-row">
+            <p class="type-scale-label">H2 · 28px / 700</p>
+            <p style="font-family:var(--font-heading);font-size:1.4rem;font-weight:700;color:var(--relay-deep);">Outer London</p>
+          </div>
+          <div class="type-row">
+            <p class="type-scale-label">H3 · 18px / 600</p>
+            <p style="font-family:var(--font-heading);font-size:1.1rem;font-weight:600;color:var(--relay-deep);">Every journey, supervised</p>
+          </div>
+          <div class="type-row">
+            <p class="type-scale-label">Label · 11px / 700 / UPPERCASE / tracked</p>
+            <p style="font-family:var(--font-heading);font-size:0.68rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--relay-teal);">Relay Service</p>
+          </div>
+        </div>
+
+        <!-- Body font -->
+        <div class="type-card">
+          <p class="type-family" style="font-family: var(--font-body);">Inter</p>
+          <p class="type-role">Body &amp; UI</p>
+
+          <div class="type-row">
+            <p class="type-scale-label">Body Large · 17px / 400</p>
+            <p style="font-size:1.06rem;color:var(--relay-dark);">Relay helps families reclaim their time.</p>
+          </div>
+          <div class="type-row">
+            <p class="type-scale-label">Body · 16px / 400</p>
+            <p style="font-size:1rem;color:var(--relay-dark);">A fixed weekly booking synced with your school calendar and shift rota. No surge pricing, ever.</p>
+          </div>
+          <div class="type-row">
+            <p class="type-scale-label">Small · 14px / 400</p>
+            <p style="font-size:0.875rem;color:var(--relay-gray);">Bexley · Croydon · Enfield — zones 4–6</p>
+          </div>
+          <div class="type-row">
+            <p class="type-scale-label">Caption · 12px / 400</p>
+            <p style="font-size:0.75rem;color:var(--relay-gray);">© 2026 Relay. All rights reserved.</p>
+          </div>
+
+          <div class="type-body-sample">
+            <p>Use <em>italic</em> for pull quotes and user testimony. Never set body copy in all-caps. Left-align paragraphs; only centre titles.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Voice & Tone ───────────────────────────────────────────── -->
+  <section id="voice">
+    <div class="section-full" style="background:var(--relay-deep); padding: var(--space-2xl) var(--space-xl);">
+      <div style="max-width:1120px; margin: 0 auto;">
+        <p class="section-label">Voice &amp; Tone</p>
+        <h2 class="voice-headline" style="font-family:var(--font-heading);font-size:var(--text-h1);font-weight:700;color:var(--relay-cream);margin-bottom:var(--space-xl);">How Relay speaks</h2>
+
+        <div class="tone-grid">
+
+          <div class="tone-card">
+            <div class="tone-header">
+              <div class="tone-pip" style="background:var(--relay-teal);"></div>
+              <p class="tone-name">Calm &amp; Confident</p>
+            </div>
+            <div class="tone-examples">
+              <div class="tone-example">
+                <span class="tone-badge badge-do">DO</span>
+                <p class="tone-copy tone-copy-do">"Your children are on their way. Chaperone Sarah is with them."</p>
+              </div>
+              <div class="tone-example">
+                <span class="tone-badge badge-dont">DON'T</span>
+                <p class="tone-copy tone-copy-dont">"Don't worry! Everything is totally fine!"</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="tone-card">
+            <div class="tone-header">
+              <div class="tone-pip" style="background:var(--relay-coral);"></div>
+              <p class="tone-name">Clear, Not Clinical</p>
+            </div>
+            <div class="tone-examples">
+              <div class="tone-example">
+                <span class="tone-badge badge-do">DO</span>
+                <p class="tone-copy tone-copy-do">"Book once. Relay handles the rest."</p>
+              </div>
+              <div class="tone-example">
+                <span class="tone-badge badge-dont">DON'T</span>
+                <p class="tone-copy tone-copy-dont">"Utilise our platform for optimised transport logistics."</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="tone-card">
+            <div class="tone-header">
+              <div class="tone-pip" style="background:#5B7FA6;"></div>
+              <p class="tone-name">Empowering</p>
+            </div>
+            <div class="tone-examples">
+              <div class="tone-example">
+                <span class="tone-badge badge-do">DO</span>
+                <p class="tone-copy tone-copy-do">"You can make it to your 8am shift. We've got the school run."</p>
+              </div>
+              <div class="tone-example">
+                <span class="tone-badge badge-dont">DON'T</span>
+                <p class="tone-copy tone-copy-dont">"We solve the problem for parents who can't manage."</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="tone-card">
+            <div class="tone-header">
+              <div class="tone-pip" style="background:#788C5D;"></div>
+              <p class="tone-name">Human First</p>
+            </div>
+            <div class="tone-examples">
+              <div class="tone-example">
+                <span class="tone-badge badge-do">DO</span>
+                <p class="tone-copy tone-copy-do">"Sarah remembers your son likes to sit by the window."</p>
+              </div>
+              <div class="tone-example">
+                <span class="tone-badge badge-dont">DON'T</span>
+                <p class="tone-copy tone-copy-dont">"Our AI-optimised chaperone system ensures passenger compliance."</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Imagery & Iconography ─────────────────────────────────── -->
+  <section id="imagery">
+    <div class="section">
+      <p class="section-label">Imagery &amp; Iconography</p>
+
+      <div class="imagery-cols">
+        <div>
+          <span class="imagery-col-label label-do">✓ &nbsp;Do</span>
+          <ul class="imagery-list">
+            <li><span class="bullet do-bullet"></span>Real families from outer London — diverse, authentic, unstaged</li>
+            <li><span class="bullet do-bullet"></span>Candid moments of children being safely dropped off or picked up</li>
+            <li><span class="bullet do-bullet"></span>Warm natural light — morning school run, after-school golden hour</li>
+            <li><span class="bullet do-bullet"></span>Close-up shots of handover moments: chaperone → child → teacher</li>
+            <li><span class="bullet do-bullet"></span>Smartphone screens showing the live tracking app, shown in context</li>
+            <li><span class="bullet do-bullet"></span>Represent disability and neurodiverse families naturally and positively</li>
+          </ul>
+        </div>
+        <div>
+          <span class="imagery-col-label label-dont">✗ &nbsp;Don't</span>
+          <ul class="imagery-list">
+            <li><span class="bullet dont-bullet"></span>Stock photo smiles, aspirational lifestyle imagery</li>
+            <li><span class="bullet dont-bullet"></span>Cold blue tech shots of autonomous vehicles in empty streets</li>
+            <li><span class="bullet dont-bullet"></span>Imagery that emphasises poverty, hardship, or helplessness</li>
+            <li><span class="bullet dont-bullet"></span>Images without representation of disability or diverse families</li>
+            <li><span class="bullet dont-bullet"></span>Posed "parent and child" shots that feel generic or corporate</li>
+          </ul>
+        </div>
+      </div>
+
+      <hr class="divider" />
+
+      <p style="font-family:var(--font-heading);font-size:var(--text-h3);font-weight:700;color:var(--relay-deep);margin-bottom:var(--space-md);">Iconography</p>
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:var(--space-md);">
+        <div class="card" style="text-align:center;">
+          <div style="width:40px;height:40px;border-radius:50%;background:var(--relay-teal);margin:0 auto var(--space-sm);"></div>
+          <p style="font-weight:600;font-size:var(--text-sm);color:var(--relay-deep);">Filled circle style</p>
+          <p style="font-size:var(--text-xs);color:var(--relay-gray);margin-top:4px;">Monoline or solid-fill. No gradients.</p>
+        </div>
+        <div class="card" style="text-align:center;">
+          <div style="width:40px;height:40px;border-radius:50%;border:2.5px solid var(--relay-deep);margin:0 auto var(--space-sm);"></div>
+          <p style="font-weight:600;font-size:var(--text-sm);color:var(--relay-deep);">Consistent weight</p>
+          <p style="font-size:var(--text-xs);color:var(--relay-gray);margin-top:4px;">2px stroke at 24px. Scale proportionally.</p>
+        </div>
+        <div class="card" style="text-align:center;">
+          <div style="width:40px;height:40px;border-radius:50%;background:var(--relay-deep);margin:0 auto var(--space-sm);"></div>
+          <p style="font-weight:600;font-size:var(--text-sm);color:var(--relay-deep);">Relay Teal or Deep</p>
+          <p style="font-size:var(--text-xs);color:var(--relay-gray);margin-top:4px;">Light bg → navy. Dark bg → cream or sky.</p>
+        </div>
+        <div class="card" style="text-align:center;">
+          <div style="width:40px;height:40px;border-radius:50%;background:var(--relay-coral);margin:0 auto var(--space-sm);"></div>
+          <p style="font-weight:600;font-size:var(--text-sm);color:var(--relay-deep);">Always labelled</p>
+          <p style="font-size:var(--text-xs);color:var(--relay-gray);margin-top:4px;">Pair icons with labels. Never use alone in CTAs.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Token Reference ────────────────────────────────────────── -->
+  <section id="tokens" style="background:#0F172A; padding: var(--space-2xl) var(--space-xl);">
+    <div style="max-width:1120px;margin:0 auto;">
+      <p class="section-label" style="color:var(--relay-teal);">CSS Token Reference</p>
+      <p class="token-headline" style="font-family:var(--font-heading);font-size:var(--text-h2);font-weight:700;color:var(--relay-cream);margin-bottom:var(--space-sm);">Paste into Claude Design to apply the Relay brand</p>
+      <p class="token-sub" style="font-size:var(--text-sm);color:var(--relay-gray);margin-bottom:var(--space-lg);">Copy the <code style="color:var(--relay-teal);">:root</code> block below into any CSS file or Claude Design prompt.</p>
+      <pre><span class="token-comment">/* ── RELAY BRAND TOKENS ──────────────────────────────── */</span>
+:root {
+  <span class="token-comment">/* Colours */</span>
+  <span class="token-prop">--relay-deep</span>:        <span class="token-val">#1B3A5C</span>;   <span class="token-comment">/* Primary */</span>
+  <span class="token-prop">--relay-teal</span>:        <span class="token-val">#0A7B94</span>;   <span class="token-comment">/* Secondary */</span>
+  <span class="token-prop">--relay-coral</span>:       <span class="token-val">#E07B54</span>;   <span class="token-comment">/* Accent */</span>
+  <span class="token-prop">--relay-cream</span>:       <span class="token-val">#F6F3EE</span>;   <span class="token-comment">/* Light background */</span>
+  <span class="token-prop">--relay-sky</span>:         <span class="token-val">#D4EBF5</span>;   <span class="token-comment">/* Supporting tint */</span>
+  <span class="token-prop">--relay-gray</span>:        <span class="token-val">#64748B</span>;   <span class="token-comment">/* Secondary text */</span>
+  <span class="token-prop">--relay-dark</span>:        <span class="token-val">#0F172A</span>;   <span class="token-comment">/* Primary text */</span>
+
+  <span class="token-comment">/* Typography */</span>
+  <span class="token-prop">--font-heading</span>:  <span class="token-val">'Poppins', 'Trebuchet MS', Arial, sans-serif</span>;
+  <span class="token-prop">--font-body</span>:     <span class="token-val">'Inter', 'Calibri', 'Gill Sans', sans-serif</span>;
+
+  <span class="token-comment">/* Type scale */</span>
+  <span class="token-prop">--text-display</span>:  <span class="token-val">4.5rem</span>;    <span class="token-comment">/* 72px — hero wordmarks */</span>
+  <span class="token-prop">--text-h1</span>:       <span class="token-val">2.5rem</span>;    <span class="token-comment">/* 40px */</span>
+  <span class="token-prop">--text-h2</span>:       <span class="token-val">1.75rem</span>;   <span class="token-comment">/* 28px */</span>
+  <span class="token-prop">--text-h3</span>:       <span class="token-val">1.125rem</span>;  <span class="token-comment">/* 18px */</span>
+  <span class="token-prop">--text-body</span>:     <span class="token-val">1rem</span>;      <span class="token-comment">/* 16px */</span>
+  <span class="token-prop">--text-sm</span>:       <span class="token-val">0.875rem</span>;  <span class="token-comment">/* 14px */</span>
+  <span class="token-prop">--text-xs</span>:       <span class="token-val">0.75rem</span>;   <span class="token-comment">/* 12px */</span>
+  <span class="token-prop">--text-label</span>:    <span class="token-val">0.6875rem</span>; <span class="token-comment">/* 11px — all-caps tracked labels */</span>
+
+  <span class="token-comment">/* Spacing */</span>
+  <span class="token-prop">--space-xs</span>:  <span class="token-val">0.25rem</span>;
+  <span class="token-prop">--space-sm</span>:  <span class="token-val">0.5rem</span>;
+  <span class="token-prop">--space-md</span>:  <span class="token-val">1rem</span>;
+  <span class="token-prop">--space-lg</span>:  <span class="token-val">2rem</span>;
+  <span class="token-prop">--space-xl</span>:  <span class="token-val">4rem</span>;
+
+  <span class="token-comment">/* Shape */</span>
+  <span class="token-prop">--radius-sm</span>:   <span class="token-val">4px</span>;
+  <span class="token-prop">--radius-md</span>:   <span class="token-val">10px</span>;
+  <span class="token-prop">--radius-lg</span>:   <span class="token-val">20px</span>;
+  <span class="token-prop">--radius-full</span>: <span class="token-val">9999px</span>;
+
+  <span class="token-comment">/* Shadows */</span>
+  <span class="token-prop">--shadow-card</span>:     <span class="token-val">0 2px 12px rgba(15, 26, 42, 0.08)</span>;
+  <span class="token-prop">--shadow-elevated</span>: <span class="token-val">0 8px 32px rgba(15, 26, 42, 0.14)</span>;
+}</pre>
+    </div>
+  </section>
+
+  <!-- ── Footer ────────────────────────────────────────────────── -->
+  <footer>
+    <div class="footer-left">
+      <div class="footer-wordmark">RELAY <span class="dot"></span></div>
+    </div>
+    <p class="footer-meta">Design Led Innovation &nbsp;·&nbsp; Team 10 &nbsp;·&nbsp; London Business School &nbsp;·&nbsp; 2026</p>
+    <p class="footer-meta">Brand Guidelines v1.0</p>
+  </footer>
+
+</body>
+</html>
